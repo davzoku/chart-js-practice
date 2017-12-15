@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>SG Bar Chart</title>
+</head>
+<body>
+<div id="container">
+  <h1><center>Sample Dataset from data.gov.sg</center></h1>
+  <canvas id="myChart"></canvas>
+</div>
+<!-- data from: https://data.gov.sg/group/education
+      tutorial: https://www.youtube.com/watch?v=sE08f4iuOhA&t=291s -->
+<script>
+   let myChart = document.getElementById('myChart').getContext('2d');
+
+   // Global Options
+   Chart.defaults.global.defaultFontFamily = 'Arial';
+   Chart.defaults.global.defaultFontSize = 10;
+   Chart.defaults.global.defaultFontColor = '#777';
+
+   let Chart1 = new Chart(myChart, {
+     type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+     data:{
+       labels:['2014','2015', '2016', '2017'],
+       datasets:[{
+         label:'Enrolment',
+         data:[
+           250,
+           951,
+           1669,
+           2379
+         ],
+         //backgroundColor:'green',
+         backgroundColor:[
+           '#D0414A',
+           '#D2D003',
+           '#50D91D',
+           '#C11BFF'
+         ],
+         borderWidth:1,
+         borderColor:'#777',
+         hoverBorderWidth:2,
+         hoverBorderColor:'#cdcdcd'
+       }]
+     },
+     options:{
+       title:{
+         display:true,
+         text:'MOE Kindergarten (2017)',
+         fontSize:15
+       },
+       legend:{
+         display:true,
+         position:'bottom',
+         labels:{
+           fontColor:'#777'
+         }
+       },
+       layout:{
+         padding:{
+           left:0,
+           right:0,
+           bottom:0,
+           top:0
+         }
+       },
+       tooltips:{
+         enabled:true
+       }
+     }
+   });
+   //tooltips = onhover stuff;
+ </script>
+</body>
+</html>
