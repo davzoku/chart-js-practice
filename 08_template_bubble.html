@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Bubble x Chart.js</title>
+</head>
+<body>
+<div id="container">
+  <h1><center>Random Values</center></h1>
+  <canvas id="myChart"></canvas>
+</div>
+<!-- data from: https://data.gov.sg/group/education
+      tutorial: https://www.youtube.com/watch?v=sE08f4iuOhA&t=291s -->
+<script>
+
+var options = {
+  type: 'bubble',
+  data: {
+    datasets: [
+      {
+        label: '1',
+        data: [
+          {
+            x: -10,
+            y: 85,
+            r: 10
+          }
+        ],
+        backgroundColor:"rgba(255, 99, 229, 0.6)",
+        hoverBackgroundColor: "#ffffff",
+        hoverBorderColor:"peachpuff",
+        hoverBorderWidth: 10
+      },
+      {
+        label: '2',
+          data: [
+            {
+              x: -18,
+              y: -27,
+              r: 50
+            }
+          ],
+          backgroundColor:"rgba(113, 99, 255, 0.6)",
+          hoverBackgroundColor: "#ffffff",
+          hoverBorderColor:"peachpuff",
+          hoverBorderWidth: 10
+      },
+      {
+        label: '3',
+          data: [
+            {
+              x: -40,
+              y: -10,
+              r: 35
+            }
+          ],
+          backgroundColor:"rgb(255, 0, 0,0.6)",
+          hoverBackgroundColor: "#ffffff",
+          hoverBorderColor:"peachpuff",
+          hoverBorderWidth: 10
+      },
+      {
+        label: '4',
+          data: [
+            {
+              x: 50,
+              y: -80,
+              r: 100
+            }
+          ],
+          backgroundColor:"rgba(99, 141, 255, 0.6)",
+          hoverBackgroundColor: "#ffffff",
+          hoverBorderColor:"peachpuff",
+          hoverBorderWidth: 10
+
+      },
+      {
+        label: '5',
+          data: [
+            {
+              x: 90,
+              y: 0,
+              r: 3
+            }
+          ],
+          backgroundColor:"rgba(120, 255, 99, 0.6)",
+          hoverBackgroundColor: "#ffffff",
+          hoverBorderColor:"peachpuff",
+          hoverBorderWidth: 10
+
+      }
+      ]
+  }
+}
+
+var ctx = document.getElementById('myChart').getContext('2d');
+new Chart(ctx, options);
+ </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Pokemon x Chart.js</title>
+</head>
+
+<body>
+  <div id="container">
+    <h1><center>Sample Dataset from pokemondb</center></h1>
+    <canvas id="myChart"></canvas>
+  </div>
+  <!-- data from: https://data.gov.sg/group/education
+      tutorial: https://www.youtube.com/watch?v=sE08f4iuOhA&t=291s -->
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Arial';
+    Chart.defaults.global.defaultFontSize = 10;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let Chart1 = new Chart(myChart, {
+          "type": "radar",
+          "data": {
+            "labels": ["HP","Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"],
+            "datasets": [{
+              "label": "Slowpoke",
+              "data": [384, 251,251, 196, 196, 141],
+              "fill": true,
+              "backgroundColor": "rgba(255, 99, 132, 0.2)",
+              "borderColor": "rgb(255, 99, 132)",
+              "pointBackgroundColor": "rgb(255, 99, 132)",
+              "pointBorderColor": "#fff",
+              "pointHoverBackgroundColor": "#fff",
+              "pointHoverBorderColor": "rgb(255, 99, 132)"
+            }, {
+              "label": "Squirtle",
+              "data": [292, 214, 251,218, 249, 203],
+              "fill": true,
+              "backgroundColor": "rgba(54, 162, 235, 0.2)",
+              "borderColor": "rgb(54, 162, 235)",
+              "pointBackgroundColor": "rgb(54, 162, 235)",
+              "pointBorderColor": "#fff",
+              "pointHoverBackgroundColor": "#fff",
+              "pointHoverBorderColor": "rgb(54, 162, 235)"
+            }]
+          },
+          "options": {
+
+            "elements": {
+              "line": {
+                "tension": 0,
+                "borderWidth": 3
+              }
+            }
+
+
+          }
+
+        });
+  </script>
+</body>
+
+</html>
